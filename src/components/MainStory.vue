@@ -6,7 +6,7 @@
           class="flex flex-col md:flex-row items-center md:items-start gap-8"
         >
           <div class="md:w-1/2">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-yellow-600 mb-4">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-600 mb-4">
               Malta’s Dominant Force in Water Polo
             </h2>
             <p class="text-lg md:text-xl leading-relaxed">
@@ -15,7 +15,7 @@
               thanks to relentless dedication and unmatched teamwork.
             </p>
           </div>
-          <div class="md:w-1/2 hidden md:block">
+          <div class="md:w-1/2  md:block">
             <!-- Replace src with your image -->
             <img
               src="../assets/fans1.jpg"
@@ -29,7 +29,7 @@
         <div
           class="flex flex-col md:flex-row items-center md:items-start gap-8 md:flex-row-reverse"
         >
-          <div class="md:w-1/2 hidden md:block">
+          <div class="md:w-1/2  md:block">
             <!-- Replace src with your image -->
             <img
               src="../assets/russel.jpg"
@@ -38,7 +38,7 @@
             />
           </div>
           <div class="md:w-1/2">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-yellow-600 mb-4">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-600 mb-4">
               Nurturing Maltese Water Polo Talent
             </h2>
             <p class="text-lg md:text-xl leading-relaxed">
@@ -53,7 +53,7 @@
           class="flex flex-col md:flex-row items-center md:items-start gap-8"
         >
           <div class="md:w-1/2">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-yellow-600 mb-4">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-600 mb-4">
               A Family Like No Other
             </h2>
             <p class="text-lg md:text-xl leading-relaxed">
@@ -61,7 +61,7 @@
               and passionate fanbase. Together, players and supporters create an unbreakable bond.
             </p>
           </div>
-          <div class="md:w-1/2 hidden md:block">
+          <div class="md:w-1/2  md:block">
             <!-- Replace src with your image -->
             <img
               src="../assets/fansaway.jpg"
