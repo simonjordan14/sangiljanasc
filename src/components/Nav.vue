@@ -3,14 +3,14 @@
     <div class="container mx-auto px-4 py-4 flex items-center justify-between">
       <!-- Brand -->
       <div class="flex items-center">
-        <img src="../assets/stjlogo.png" alt="San Giljan ASC Logo" class="h-10 w-auto" />
+        <img src="../assets/stjlogo.png" alt="San Giljan ASC Logo" class="h-10 w-auto"/>
       </div>
 
       <!-- Desktop Links -->
       <div class="hidden md:flex space-x-6">
-        <a href="#" class="text-black hover:text-gray-600">Home</a>
+        <router-link to="/" class="text-black hover:text-gray-600">Home</router-link>
         <a href="#" class="text-black hover:text-gray-600">About</a>
-        <a href="#" class="text-black hover:text-gray-600">Teams</a>
+        <router-link to="/squad" class="text-black hover:text-gray-600">Squad</router-link>
         <a href="#" class="text-black hover:text-gray-600">Contact</a>
       </div>
 
@@ -25,9 +25,9 @@
 
     <!-- Mobile Menu -->
     <div v-if="isOpen" class="md:hidden px-4 pb-4 space-y-2">
-      <a href="#" class="block text-black hover:text-gray-600">Home</a>
+      <router-link to="/" class="block text-black hover:text-gray-600">Home</router-link>
       <a href="#" class="block text-black hover:text-gray-600">About</a>
-      <a href="#" class="block text-black hover:text-gray-600">Teams</a>
+      <router-link to="/squad" class="text-black hover:text-gray-600">Squad</router-link>
       <a href="#" class="block text-black hover:text-gray-600">Contact</a>
     </div>
   </nav>
@@ -35,5 +35,6 @@
 
 <script setup>
 import { ref } from 'vue'
+import { RouterLink, RouterView } from 'vue-router';
 const isOpen = ref(false)
 </script>
