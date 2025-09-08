@@ -1,6 +1,7 @@
 <script setup>
 import Nav from '../components/Nav.vue'
 import { ref } from 'vue';
+import ImageSlider from '../components/ImageSlider.vue';
 
 const count = ref(0);
 
@@ -40,6 +41,10 @@ import coach from '../assets/squad/coach.jpg';
       <p class="text-gray-600">Head Coach</p>
     </div>
   </div>
+    </div>
+
+    <div>
+        <ImageSlider />
     </div>
 </template>
 
