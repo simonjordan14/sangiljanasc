@@ -5,28 +5,28 @@
 </h2>
     </div>
 <div class="wrapper">
-    <div class="item item1 text-center">
+    <div class="item item1 text-center text-white">
         <span>Maa Daiken</span>
     </div>
-  <div class="item item2 text-center">        
+  <div class="item item2 text-center text-white">        
         <span>Lotto Land</span>
   </div>
-  <div class="item item3 text-center">
+  <div class="item item3 text-center text-white">
     <span>EuroSport</span>
     </div>
-  <div class="item item4 text-center">
+  <div class="item item4 text-center text-white">
     <span>Delicata</span>
 </div>
-  <div class="item item5 text-center">
+  <div class="item item5 text-center text-white">
     <span>GSD</span>
 </div>
-  <div class="item item6 text-center">
+  <div class="item item6 text-center text-white">
     <span>Nestle</span>
 </div>
-  <div class="item item7 text-center">
+  <div class="item item7 text-center text-white">
     <span>Greens</span>
 </div>
-  <div class="item item8 text-center">
+  <div class="item item8 text-center text-white">
     <span>Pirata</span>
 </div>
 </div>
@@ -70,7 +70,7 @@
 
 .item {
   width: 200px;
-  height: 100px;
+  height:70px;
   background-color: rgba(97, 93, 95, 0.8);
   border-radius: 6px;
   position: absolute;
