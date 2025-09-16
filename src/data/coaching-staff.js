@@ -2,8 +2,7 @@ import Giorgos from '../assets/squad/coach.jpg';
 import Claudio from '../assets/squad/claudio.jpg'
 import Silvio from '../assets/squad/silvio.jpg'
 import Daniel from '../assets/squad/daniel.jpg'
-import Mark from '../assets/squad/Mark.jpg'
-
+import Mark from '../assets/squad/Mark2.jpg'
 
 export default [
     {name: 'Silvio Borg', role: 'Team Manager', image: Silvio},
