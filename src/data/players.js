@@ -9,7 +9,7 @@ import JeremyAbela from '../assets/images/jeremy-abela.jpg';
 import NikolaiZammit from '../assets/images/nikolai-zammit.jpg';
 import DarrenZammit from '../assets/images/darren-zammit.jpg';
 import NicoSchiavone from '../assets/images/nico-schiavone.jpg';
-import GabrielBonavia from '../assets/images/gabriel2.jpg';
+import GabrielBonavia from '../assets/images/gab2.jpg';
 import ZakAttard from '../assets/images/zak-attard.jpg';
 
 const Players = [
