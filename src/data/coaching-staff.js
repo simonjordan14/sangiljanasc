@@ -1,8 +1,8 @@
 import Giorgos from '../assets/squad/coach.jpg';
 import Claudio from '../assets/squad/claudio.jpg'
-import Mark from '../assets/squad/mark.jpg'
 import Silvio from '../assets/squad/silvio.jpg'
 import Daniel from '../assets/squad/daniel.jpg'
+import Mark from '../assets/squad/Mark.jpg'
 
 
 export default [
