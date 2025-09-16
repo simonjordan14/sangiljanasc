@@ -4,12 +4,15 @@ import players from '../data/players';
 // define the event the child will emit
 const emit = defineEmits(["player-click"]);
 
+
 const handleClick = (player) => {
   emit("player-click", player); // send player back to parent
 };
 </script>
 
 <template>
+  <div>
+  </div>
   <div class="pt-5 flex justify-center">
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 px-10">
       <div

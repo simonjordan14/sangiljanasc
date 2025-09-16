@@ -1,45 +1,31 @@
 <script setup>
 import Nav from '../components/Nav.vue'
-import { ref } from 'vue';
-import ImageSlider from '../components/ImageSlider.vue';
+import { ref, nextTick } from 'vue';
 import Footer from '../components/Footer.vue';
 import PlayerCard from '../components/PlayerCard.vue';
 
+const playerSummary = ref('');
+const playerImage = ref('');
+const showPlayer = ref(false);
 
-const summarySection = ref(null);
-const playerSummary = ref('Click on a player to see their details!');
-const playerImage = ref('../assets/squad/dean.jpg'); // default image
-const showPlayer =  ref(false);
-
-const imageSection = ref(null); // 👈 new ref for the image only
-
-
-// When child emits an event, update state
 const handlePlayerClick = async (player) => {
   playerSummary.value = player.description;
   playerImage.value = player.image;
   showPlayer.value = true;
 
   await nextTick();
-
-  if (imageSection.value) {
-    const elementTop = imageSection.value.getBoundingClientRect().top + window.scrollY;
-    const offset = 100; // tweak to stop slightly below the image
-    window.scrollTo({
-      top: elementTop - offset,
-      behavior: "smooth",
-    });
-  }
+  window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
+const closePlayer = () => {
+  showPlayer.value = false;
+};
 
 import coach from '../assets/squad/coach.jpg';
 </script>
 
 <template>
   <Nav />
-
-  <!-- Player summary at top -->
 
   <div class="squad-content">
     <h2 class="text-4xl font-bold text-gray-800 text-center my-8">Meet The Team</h2>
@@ -56,20 +42,35 @@ import coach from '../assets/squad/coach.jpg';
     </div>
 
     <h3 class="text-3xl font-bold text-gray-800 text-center">Players</h3>
-    <!-- Pass handler to child -->
-    <div v-if="showPlayer" class="squad-heading flex w-screen h-screen">
-    <div class="flex w-1/2 h-full" ref="imageSection">
-      <div class="m-auto w-3/4">
-        <img :src="playerImage" alt="Selected Player" class="w-full h-auto" />
-      </div>
-    </div>
-    <div class="flex w-1/2 h-full">
-      <div class="m-auto text-center p-10 rounded-lg shadow-lg w-3/4">
-        {{ playerSummary }}
-      </div>
-    </div>
-  </div>
     <PlayerCard @player-click="handlePlayerClick" />
+  </div>
+
+  <!-- Player Modal Overlay -->
+  <div
+    v-if="showPlayer"
+    class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4"
+  >
+    <div
+      class="bg-white rounded-lg shadow-lg relative w-full max-w-4xl flex flex-col md:flex-row overflow-hidden"
+    >
+      <!-- Close Button -->
+      <button
+        @click="closePlayer"
+        class="absolute top-4 right-4 text-gray-500 hover:text-black text-xl font-bold"
+      >
+        ✕
+      </button>
+
+      <!-- Image -->
+      <div class="md:w-1/2 flex items-center justify-center p-4">
+        <img :src="playerImage" alt="Selected Player" class="rounded-lg max-h-[80vh] object-contain"/>
+      </div>
+
+      <!-- Text -->
+      <div class="md:w-1/2 flex items-center justify-center p-6 text-center">
+        <p class="text-lg">{{ playerSummary }}</p>
+      </div>
+    </div>
   </div>
 
   <Footer />
