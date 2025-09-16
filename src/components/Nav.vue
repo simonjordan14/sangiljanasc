@@ -11,7 +11,7 @@
         <router-link to="/" class="text-black hover:text-gray-600">Home</router-link>
         <a href="#" class="text-black hover:text-gray-600">About</a>
         <router-link to="/squad" class="text-black hover:text-gray-600">Squad</router-link>
-        <a href="#" class="text-black hover:text-gray-600">Contact</a>
+        <router-link to="/contact" class="block text-black hover:text-gray-600">Contact</router-link>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -28,7 +28,7 @@
       <router-link to="/" class="block text-black hover:text-gray-600">Home</router-link>
       <a href="#" class="block text-black hover:text-gray-600">About</a>
       <router-link to="/squad" class="text-black hover:text-gray-600">Squad</router-link>
-      <a href="#" class="block text-black hover:text-gray-600">Contact</a>
+      <router-link to="/contact" class="block text-black hover:text-gray-600">Contact</router-link>
     </div>
   </nav>
 </template>

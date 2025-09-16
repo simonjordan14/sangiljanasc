@@ -9,8 +9,8 @@ import JeremyAbela from '../assets/images/jeremy-abela.jpg';
 import NikolaiZammit from '../assets/images/nikolai-zammit.jpg';
 import DarrenZammit from '../assets/images/darren-zammit.jpg';
 import NicoSchiavone from '../assets/images/nico-schiavone.jpg';
-// import GabrielBonavia from '../assets/images/gabriel-bonavia.jpg';
-// import ZakAttard from '../assets/images/zak-attard.jpg';
+import GabrielBonavia from '../assets/images/gabriel.jpg';
+import ZakAttard from '../assets/images/zak-attard.jpg';
 
 const Players = [
     {name: 'Jake Tanti',  number: 1, image: JakeTanti, description: 'known as the wall of the team, Jake is a solid goalkeeper who is always ready to defend his goal.'},
@@ -24,8 +24,8 @@ const Players = [
     {name: 'Nikolai Zammit', number: 10, image: NikolaiZammit, description: 'A versatile player who can play in multiple positions. He is known for his speed and agility.'},
     {name: 'Darren Zammit', number: 11, image: DarrenZammit, description: 'A hardworking player who is willing to go all the way to get the results.'},
     {name: 'Nico Schiavone', number: 12, image: NicoSchiavone, description: 'A young and versatile player who is increasingly becoming a key player in our team.'},
-    // {name: 'Gabriel Bonavia', number: 13, image: GabrielBonavia},
-    // {name: 'Zak Attard', number: 14, image: ZakAttard},
+    {name: 'Gabriel Bonavia', number: 13, image: GabrielBonavia},
+    {name: 'Zak Attard', number: 14, image: ZakAttard},
 ]   
 
 export default Players;

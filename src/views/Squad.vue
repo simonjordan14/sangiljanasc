@@ -3,6 +3,7 @@ import Nav from '../components/Nav.vue'
 import { ref, nextTick } from 'vue';
 import Footer from '../components/Footer.vue';
 import PlayerCard from '../components/PlayerCard.vue';
+import staff from '../data/coaching-staff';
 
 const playerSummary = ref('');
 const playerImage = ref('');
@@ -21,7 +22,6 @@ const closePlayer = () => {
   showPlayer.value = false;
 };
 
-import coach from '../assets/squad/coach.jpg';
 </script>
 
 <template>
@@ -29,20 +29,34 @@ import coach from '../assets/squad/coach.jpg';
 
   <div class="squad-content">
     <h2 class="text-4xl font-bold text-gray-800 text-center my-8">Meet The Team</h2>
-    <h3 class="text-3xl font-bold text-gray-800 text-center my-8">Technical Staff</h3>
 
-    <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white m-20">
-      <div class="h-80 overflow-hidden">
-        <img class="w-full object-cover" :src="coach" alt="Profile Image"/>
-      </div>
-      <div class="px-6 py-4 text-center">
-        <h2 class="text-xl font-semibold text-gray-800">Giorgios</h2>
-        <p class="text-gray-600">Head Coach</p>
-      </div>
+    <div class="py-10">
+        <h3 class="text-3xl font-bold text-gray-800 text-center">Players</h3>
+        <PlayerCard @player-click="handlePlayerClick" />
     </div>
 
-    <h3 class="text-3xl font-bold text-gray-800 text-center">Players</h3>
-    <PlayerCard @player-click="handlePlayerClick" />
+
+    <h3 class="text-3xl font-bold text-gray-800 text-center my-8">Technical Staff</h3>
+
+    <div class="flex flex-wrap justify-center">
+    <div
+      v-for="(person, index) in staff"
+      :key="index"
+      class="max-w-sm rounded overflow-hidden shadow-lg bg-white m-6 w-60"
+    >
+      <div class="h-80 overflow-hidden">
+        <img
+          class="w-full object-cover"
+          :src="person.image"
+          :alt="staff.name"
+        />
+      </div>
+      <div class="px-6 py-4 text-center">
+        <h2 class="text-xl font-semibold text-gray-800">{{ person.name }}</h2>
+        <p class="text-gray-600">{{ person.role }}</p>
+      </div>
+    </div>
+  </div>
   </div>
 
   <!-- Player Modal Overlay -->

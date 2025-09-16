@@ -14,7 +14,7 @@ const handleClick = (player) => {
   <div>
   </div>
   <div class="pt-5 flex justify-center">
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 px-10">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 px-10 width-full py-10">
       <div
         v-for="(player, index) in players"
         :key="index"
