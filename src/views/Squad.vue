@@ -1,91 +1,115 @@
 <script setup>
-import Nav from '../components/Nav.vue'
-import { ref, nextTick } from 'vue';
-import Footer from '../components/Footer.vue';
-import PlayerCard from '../components/PlayerCard.vue';
-import staff from '../data/coaching-staff';
-
-const playerSummary = ref('');
-const playerImage = ref('');
-const showPlayer = ref(false);
-
-const handlePlayerClick = async (player) => {
-  playerSummary.value = player.description;
-  playerImage.value = player.image;
-  showPlayer.value = true;
-
-  await nextTick();
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
-
-const closePlayer = () => {
-  showPlayer.value = false;
-};
-
-</script>
-
-<template>
-  <Nav />
-
-  <div class="squad-content">
-    <h2 class="text-4xl font-bold text-gray-800 text-center my-8">Meet The Team</h2>
-
-    <div class="py-10">
-        <h3 class="text-3xl font-bold text-gray-800 text-center">Players</h3>
-        <PlayerCard @player-click="handlePlayerClick" />
-    </div>
-
-
-    <h3 class="text-3xl font-bold text-gray-800 text-center my-8">Technical Staff</h3>
-
-    <div class="flex flex-wrap justify-center">
-    <div
-      v-for="(person, index) in staff"
-      :key="index"
-      class="max-w-sm rounded overflow-hidden shadow-lg bg-white m-6 w-60"
-    >
-      <div class="h-80 overflow-hidden">
-        <img
-          class="w-full object-cover"
-          :src="person.image"
-          :alt="staff.name"
-        />
+  import Nav from '../components/Nav.vue'
+  import Footer from '../components/Footer.vue'
+  import PlayerCard from '../components/PlayerCard.vue'
+  import SectionDivider from '../components/SectionDivider.vue'
+  
+  import staff from '../data/coaching-staff'
+  import { ref, nextTick } from 'vue'
+  
+  const playerSummary = ref('')
+  const playerImage = ref('')
+  const showPlayer = ref(false)
+  
+  const handlePlayerClick = async (player) => {
+    playerSummary.value = player.description
+    playerImage.value = player.image
+    showPlayer.value = true
+  
+    await nextTick()
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+  
+  const closePlayer = () => {
+    showPlayer.value = false
+  }
+  </script>
+  
+  <template>
+    <Nav />
+  
+    <!-- HERO -->
+    <section class="relative bg-black text-white">
+      <div class="mx-auto max-w-6xl px-4 py-20 text-center">
+        <h2 class="text-4xl font-bold tracking-tight">Meet The Team</h2>
+        <p class="mt-4 text-white/80">
+          Players and technical staff representing San Ġiljan ASC.
+        </p>
       </div>
-      <div class="px-6 py-4 text-center">
-        <h2 class="text-xl font-semibold text-gray-800">{{ person.name }}</h2>
-        <p class="text-gray-600">{{ person.role }}</p>
+  
+      <!-- Divider -->
+      <SectionDivider />
+    </section>
+  
+    <!-- CONTENT -->
+    <section class="bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-16">
+        <div class="py-6">
+          <h3 class="text-3xl font-bold text-gray-800 text-center">Players</h3>
+          <div class="mt-8">
+            <PlayerCard @player-click="handlePlayerClick" />
+          </div>
+        </div>
+  
+        <h3 class="text-3xl font-bold text-gray-800 text-center my-10">Technical Staff</h3>
+  
+        <div class="flex flex-wrap justify-center">
+          <div
+            v-for="(person, index) in staff"
+            :key="index"
+            class="m-6 w-60 max-w-sm overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg"
+          >
+            <div class="h-80 overflow-hidden">
+              <img
+                class="h-full w-full object-cover"
+                :src="person.image"
+                :alt="person.name"
+                loading="lazy"
+              />
+            </div>
+  
+            <div class="px-6 py-4 text-center">
+              <h2 class="text-xl font-semibold text-gray-800">{{ person.name }}</h2>
+              <p class="text-gray-600">{{ person.role }}</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  </div>
-
-  <!-- Player Modal Overlay -->
-  <div
-    v-if="showPlayer"
-    class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4"
-  >
+    </section>
+  
+    <!-- Player Modal Overlay -->
     <div
-      class="bg-white rounded-lg shadow-lg relative w-full max-w-4xl flex flex-col md:flex-row overflow-hidden"
+      v-if="showPlayer"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
     >
-      <!-- Close Button -->
-      <button
-        @click="closePlayer"
-        class="absolute top-4 right-4 text-gray-500 hover:text-black text-xl font-bold"
+      <div
+        class="relative w-full max-w-4xl overflow-hidden rounded-2xl bg-white shadow-lg flex flex-col md:flex-row"
       >
-        ✕
-      </button>
-
-      <!-- Image -->
-      <div class="md:w-1/2 flex items-center justify-center p-4">
-        <img :src="playerImage" alt="Selected Player" class="rounded-lg max-h-[80vh] object-contain"/>
-      </div>
-
-      <!-- Text -->
-      <div class="md:w-1/2 flex items-center justify-center p-6 text-center">
-        <p class="text-lg">{{ playerSummary }}</p>
+        <!-- Close Button -->
+        <button
+          @click="closePlayer"
+          class="absolute right-4 top-4 text-xl font-bold text-gray-500 hover:text-black"
+          aria-label="Close"
+        >
+          ✕
+        </button>
+  
+        <!-- Image -->
+        <div class="flex items-center justify-center p-4 md:w-1/2">
+          <img
+            :src="playerImage"
+            alt="Selected Player"
+            class="max-h-[80vh] rounded-xl object-contain"
+          />
+        </div>
+  
+        <!-- Text -->
+        <div class="flex items-center justify-center p-6 text-center md:w-1/2">
+          <p class="text-lg">{{ playerSummary }}</p>
+        </div>
       </div>
     </div>
-  </div>
-
-  <Footer />
-</template>
+  
+    <Footer />
+  </template>
+  

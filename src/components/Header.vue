@@ -1,9 +1,10 @@
 <template>
   <header
-    class="h-screen w-full bg-cover bg-center flex flex-col relative"
+    class="h-screen w-full bg-cover bg-center flex flex-col relative overflow-hidden"
     :style="{ backgroundImage: `url(${flagBg})` }"
   >
-    <div class="absolute inset-0 bg-black/30"></div>
+    <!-- overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70"></div>
 
     <Nav class="relative z-10" />
 

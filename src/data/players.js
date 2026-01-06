@@ -11,6 +11,9 @@ import DarrenZammit from '../assets/images/darren-zammit.jpg';
 import NicoSchiavone from '../assets/images/nico-schiavone.jpg';
 import GabrielBonavia from '../assets/images/gab2.jpg';
 import ZakAttard from '../assets/images/zak-attard.jpg';
+import AlecFenech from '../assets/images/alec-fenech.jpg';
+import LuigiDimech from '../assets/images/luigi-dimech.jpg';
+import JakeMuscat from '../assets/images/jake-muscat.jpg';
 
 const Players = [
     {name: 'Jake Tanti',  number: 1, image: JakeTanti, description: 'known as the wall of the team, Jake is a solid goalkeeper who is always ready to defend his goal.'},
@@ -25,7 +28,10 @@ const Players = [
     {name: 'Darren Zammit', number: 11, image: DarrenZammit, description: 'A hardworking player who is willing to go all the way to get the results.'},
     {name: 'Nico Schiavone', number: 12, image: NicoSchiavone, description: 'A young and versatile player who is increasingly becoming a key player in our team.'},
     {name: 'Zak Attard', number: 13, image: ZakAttard, description: 'Our Secondary Goalereeper, Zak is always ready to step in and perform when needed.'},
-    {name: 'Gabriel Bonavia', number: 14, image: GabrielBonavia, description: 'A young and talented player who is always ready to learn and improve his skills.'},
+    {name: 'Gabriel Bonavia', number: 'tbc', image: GabrielBonavia, description: 'A young and talented player who is always ready to learn and improve his skills.'},
+    {name: 'Alec Fenech', number: 12, image: AlecFenech, description: 'One of Maltas most promising talents, Alec is known for his technical skills and vision on the field.'},
+    {name: 'Luigi Dimech', number: 14, image: LuigiDimech, description: 'A solid player who is always ready to give his best for the team.'},
+    {name: 'Jake Muscat', number: 'tbc', image: JakeMuscat, description: 'A player who always rises to the occasion and performs under pressure.'},
 ]   
 
 export default Players;

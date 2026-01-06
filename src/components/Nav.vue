@@ -9,7 +9,7 @@
       <!-- Desktop Links -->
       <div class="hidden md:flex space-x-6">
         <router-link to="/" class="text-black hover:text-gray-600">Home</router-link>
-        <router-link to="#" class="text-black hover:text-gray-600">About</router-link>
+        <router-link to="/about" class="text-black hover:text-gray-600">About</router-link>
         <router-link to="/squad" class="text-black hover:text-gray-600">Squad</router-link>
         <router-link to="/contact" class="block text-black hover:text-gray-600">Contact</router-link>
       </div>
@@ -26,7 +26,7 @@
     <!-- Mobile Menu -->
     <div v-if="isOpen" class="md:hidden px-4 pb-4 space-y-2">
       <router-link to="/" class="block text-black hover:text-gray-600">Home</router-link>
-      <router-link to="#" class="block text-black hover:text-gray-600">About</router-link>
+      <router-link to="/about" class="block text-black hover:text-gray-600">About</router-link>
       <router-link to="/squad" class="text-black hover:text-gray-600">Squad</router-link>
       <router-link to="/contact" class="block text-black hover:text-gray-600">Contact</router-link>
     </div>

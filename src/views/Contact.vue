@@ -66,9 +66,8 @@ const handleSubmit = () => {
         <p class="text-gray-600 mb-6"><strong>Email:</strong> info@sangiljanasc.com</p>
 
         <div class="flex space-x-4">
-          <a href="#" class="text-blue-600 hover:text-blue-800">Facebook</a>
-          <a href="#" class="text-blue-400 hover:text-blue-600">Twitter</a>
-          <a href="#" class="text-pink-600 hover:text-pink-800">Instagram</a>
+          <a href="https://www.facebook.com/sangiljanasc/" class="text-blue-600 hover:text-blue-800">Facebook</a>
+          <a href="https://www.instagram.com/sangiljanaquaticsportsclub/?hl=en" class="text-pink-600 hover:text-pink-800">Instagram</a>
         </div>
       </div>
 
