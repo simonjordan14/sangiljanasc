@@ -31,17 +31,6 @@
             loading="lazy"
           />
   
-
-  
-          <!-- Club badge -->
-          <img
-            :src="clubBadge"
-            alt="San Ġiljan ASC"
-            class="absolute top-3 left-3 h-8 w-8 opacity-90
-                   drop-shadow-md transition-opacity duration-300
-                   group-hover:opacity-100"
-          />
-  
           <!-- Hover text -->
           <div
             class="absolute inset-0 flex items-end p-3 opacity-0
