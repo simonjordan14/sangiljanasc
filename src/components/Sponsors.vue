@@ -27,7 +27,7 @@
     <span>Greens</span>
 </div>
   <div class="item item8 text-center text-white">
-    <span>Pirata</span>
+    <span>Il Pirata</span>
 </div>
 </div>
 </template>
