@@ -44,6 +44,5 @@
         </p>
       </div>
     </section>
-    <Footer />
   </template>
   

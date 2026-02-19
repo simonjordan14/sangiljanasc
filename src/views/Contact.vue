@@ -72,5 +72,4 @@ const handleSubmit = () => {
     </div>
   </section>
 
-  <Footer />
 </template>

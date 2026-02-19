@@ -11,7 +11,6 @@ import ServicesSection from '../components/ServicesSection.vue';
  <MainStory />
   <ServicesSection />
   <Sponsors />
-  <Footer />
 </template>
 
 

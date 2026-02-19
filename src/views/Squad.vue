@@ -1,5 +1,4 @@
 <script setup>
-  import Footer from '../components/Footer.vue'
   import PlayerCard from '../components/PlayerCard.vue'
   import SectionDivider from '../components/SectionDivider.vue'
   
@@ -108,6 +107,5 @@
       </div>
     </div>
   
-    <Footer />
   </template>
   
