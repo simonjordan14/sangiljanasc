@@ -1,76 +1,129 @@
 <template>
-  <main class="bg-pink text-gray-900">
+  <section class="relative overflow-hidden bg-black text-white">
+    <!-- Subtle background texture -->
+    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.12),transparent_55%)]"></div>
 
-    <!-- Belgium Divider -->
-    <div class="bg-black">
-      <SectionDivider />
-    </div>
+    <!-- Content -->
+    <div class="relative max-w-6xl mx-auto px-6 py-24 space-y-24">
+      <!-- Header -->
+      <div class="text-center max-w-3xl mx-auto">
+        <p class="uppercase tracking-[0.35em] text-white/60 text-sm">
+          San Ġiljan ASC
+        </p>
+        <h2 class="mt-3 text-4xl md:text-5xl font-extrabold">
+          Built on tradition. Driven by ambition.
+        </h2>
+        <p class="mt-4 text-white/70 text-lg leading-relaxed">
+          From championship nights to developing Malta’s finest talent — the story continues,
+          season after season.
+        </p>
+      </div>
 
-    <section class="max-w-6xl mx-auto px-6 py-16 space-y-20 bg-white">
-      <!-- Section 1 -->
-      <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
-        <div class="md:w-1/2">
-          <h2 class="text-3xl md:text-4xl font-extrabold text-gray-600 mb-4">
+      <!-- Story Block 1 -->
+      <div class="group grid lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <!-- Belgium accent line -->
+          <div class="flex items-center gap-2">
+            <span class="h-1 w-10 bg-yellow-400 rounded-full"></span>
+            <span class="h-1 w-10 bg-red-500 rounded-full"></span>
+            <span class="h-1 w-10 bg-white/80 rounded-full"></span>
+          </div>
+
+          <h3 class="text-3xl md:text-4xl font-extrabold leading-tight">
             Malta’s Dominant Force in Water Polo
-          </h2>
-          <p class="text-lg md:text-xl leading-relaxed">
-            San Ġiljan ASC has dominated the stage in recent years,
-            establishing itself as a powerhouse with multiple championships,
-            thanks to relentless dedication and unmatched teamwork.
+          </h3>
+
+          <p class="text-white/70 text-lg leading-relaxed">
+            San Ġiljan ASC has dominated the stage in recent years, establishing itself as a powerhouse
+            with multiple championships — powered by relentless dedication and unmatched teamwork.
           </p>
+
+          <div class="inline-flex items-center gap-3 text-sm text-white/70">
+            <span class="h-2 w-2 rounded-full bg-yellow-400"></span>
+            <span>Championship mentality • Elite standards • Club pride</span>
+          </div>
         </div>
-        <div class="md:w-1/2">
+
+        <div class="relative">
+          <div class="absolute -inset-2 rounded-3xl bg-gradient-to-r from-yellow-400/20 via-red-500/15 to-white/10 blur-xl opacity-70 group-hover:opacity-100 transition"></div>
           <img
             src="../assets/fans1.jpg"
             alt="San Ġiljan ASC winning trophy"
-            class="rounded-lg shadow-lg object-cover w-full h-64 md:h-80"
+            class="relative rounded-3xl shadow-2xl object-cover w-full h-72 md:h-96
+                   ring-1 ring-white/10 transition duration-500 group-hover:scale-[1.02]"
           />
         </div>
       </div>
 
-      <!-- Section 2 -->
-      <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:flex-row-reverse">
-        <div class="md:w-1/2">
+      <!-- Story Block 2 -->
+      <div class="group grid lg:grid-cols-2 gap-12 items-center">
+        <div class="relative order-2 lg:order-1">
+          <div class="absolute -inset-2 rounded-3xl bg-gradient-to-r from-white/10 via-red-500/15 to-yellow-400/20 blur-xl opacity-70 group-hover:opacity-100 transition"></div>
           <img
             src="../assets/russel.jpg"
             alt="San Ġiljan ASC players training"
-            class="rounded-lg shadow-lg object-cover w-full h-64 md:h-80"
+            class="relative rounded-3xl shadow-2xl object-cover w-full h-72 md:h-96
+                   ring-1 ring-white/10 transition duration-500 group-hover:scale-[1.02]"
           />
         </div>
-        <div class="md:w-1/2">
-          <h2 class="text-3xl md:text-4xl font-extrabold text-gray-600 mb-4">
+
+        <div class="space-y-6 order-1 lg:order-2">
+          <div class="flex items-center gap-2">
+            <span class="h-1 w-10 bg-white/80 rounded-full"></span>
+            <span class="h-1 w-10 bg-yellow-400 rounded-full"></span>
+            <span class="h-1 w-10 bg-red-500 rounded-full"></span>
+          </div>
+
+          <h3 class="text-3xl md:text-4xl font-extrabold leading-tight">
             Nurturing Maltese Water Polo Talent
-          </h2>
-          <p class="text-lg md:text-xl leading-relaxed">
-            Proud developers of Malta’s finest athletes, many of whom now play abroad
-            for top foreign clubs and proudly represent the national team on the world stage.
+          </h3>
+
+          <p class="text-white/70 text-lg leading-relaxed">
+            Proud developers of Malta’s finest athletes — many now playing abroad for top foreign clubs
+            and representing the national team on the world stage.
           </p>
+
+          <div class="inline-flex items-center gap-3 text-sm text-white/70">
+            <span class="h-2 w-2 rounded-full bg-red-500"></span>
+            <span>Youth development • Discipline • Professional pathways</span>
+          </div>
         </div>
       </div>
 
-      <!-- Section 3 -->
-      <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
-        <div class="md:w-1/2">
-          <h2 class="text-3xl md:text-4xl font-extrabold text-gray-600 mb-4">
+      <!-- Story Block 3 -->
+      <div class="group grid lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <div class="flex items-center gap-2">
+            <span class="h-1 w-10 bg-red-500 rounded-full"></span>
+            <span class="h-1 w-10 bg-white/80 rounded-full"></span>
+            <span class="h-1 w-10 bg-yellow-400 rounded-full"></span>
+          </div>
+
+          <h3 class="text-3xl md:text-4xl font-extrabold leading-tight">
             A Family Like No Other
-          </h2>
-          <p class="text-lg md:text-xl leading-relaxed">
-            San Ġiljan ASC isn’t just a club — it’s a massive family with the most loyal
-            and passionate fanbase. Together, players and supporters create an unbreakable bond.
+          </h3>
+
+          <p class="text-white/70 text-lg leading-relaxed">
+            San Ġiljan ASC isn’t just a club — it’s a family. The most loyal and passionate supporters,
+            united with the players by an unbreakable bond.
           </p>
+
+          <div class="inline-flex items-center gap-3 text-sm text-white/70">
+            <span class="h-2 w-2 rounded-full bg-white/80"></span>
+            <span>Community • Loyalty • Identity</span>
+          </div>
         </div>
-        <div class="md:w-1/2">
+
+        <div class="relative">
+          <div class="absolute -inset-2 rounded-3xl bg-gradient-to-r from-red-500/15 via-yellow-400/15 to-white/10 blur-xl opacity-70 group-hover:opacity-100 transition"></div>
           <img
             src="../assets/fansaway.jpg"
             alt="San Ġiljan ASC fans cheering"
-            class="rounded-lg shadow-lg object-cover w-full h-64 md:h-80"
+            class="relative rounded-3xl shadow-2xl object-cover w-full h-72 md:h-96
+                   ring-1 ring-white/10 transition duration-500 group-hover:scale-[1.02]"
           />
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 </template>
-
-<script setup>
-import SectionDivider from '../components/SectionDivider.vue'
-</script>
