@@ -17,6 +17,10 @@ const handleSubmit = () => {
   email.value = ''
   message.value = ''
 }
+
+
+
+const isDisabled = ref(true)
 </script>
 
 <template>
@@ -50,10 +54,15 @@ const handleSubmit = () => {
                     class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300"></textarea>
         </div>
 
-        <button type="submit"
-                class="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition">
+        <button    
+        :disabled="isDisabled"
+        type="submit"
+                class="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition" disabled>
           Send Message
         </button>
+        <div>
+          Our contact form is temporarily out of action — we’re working on it! In the meantime, feel free to reach out through our social media pages.
+        </div>
       </form>
 
       <!-- Contact Info -->
