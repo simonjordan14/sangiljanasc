@@ -8,8 +8,8 @@ import ServicesSection from '../components/ServicesSection.vue';
 
 <template>
  <Header />
+ <MainStory />
   <ServicesSection />
-  <MainStory />
   <Sponsors />
   <Footer />
 </template>
