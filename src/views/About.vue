@@ -1,12 +1,10 @@
 <script setup>
     import SectionDivider from  '../components/SectionDivider.vue'
     import Footer from '../components/Footer.vue'
-    import Nav from '../components/Nav.vue'
 </script>
     
 
 <template>
-    <Nav />
     <!-- HERO / INTRO -->
     <section class="relative bg-black text-white">
       <div class="mx-auto max-w-6xl px-4 py-28">

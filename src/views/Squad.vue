@@ -1,5 +1,4 @@
 <script setup>
-  import Nav from '../components/Nav.vue'
   import Footer from '../components/Footer.vue'
   import PlayerCard from '../components/PlayerCard.vue'
   import SectionDivider from '../components/SectionDivider.vue'
@@ -26,7 +25,6 @@
   </script>
   
   <template>
-    <Nav />
   
     <!-- HERO -->
     <section class="relative bg-black text-white">

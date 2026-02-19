@@ -6,7 +6,6 @@
     <!-- overlay -->
     <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70"></div>
 
-    <Nav class="relative z-10" />
 
     <div class="flex-1 flex items-center justify-center relative z-10">
       <h1 class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
@@ -17,6 +16,5 @@
 </template>
 
 <script setup>
-import Nav from './Nav.vue'
 import flagBg from '../assets/flagbg.png'
 </script>

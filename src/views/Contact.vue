@@ -1,5 +1,4 @@
 <script setup>
-import Nav from '../components/Nav.vue'
 import Footer from '../components/Footer.vue'
 import { ref } from 'vue'
 
@@ -21,7 +20,6 @@ const handleSubmit = () => {
 </script>
 
 <template>
-  <Nav />
 
   <section class="container mx-auto px-4 py-12">
     <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">Contact Us</h2>
