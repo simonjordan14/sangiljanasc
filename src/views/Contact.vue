@@ -61,9 +61,9 @@ const handleSubmit = () => {
       <!-- Contact Info -->
       <div class="flex flex-col justify-center bg-gray-100 rounded-lg p-8 shadow-lg">
         <h3 class="text-2xl font-semibold text-gray-800 mb-4">Get in Touch</h3>
-        <p class="text-gray-600 mb-2"><strong>Address:</strong> 123 Main Street, San Ġiljan, Malta</p>
-        <p class="text-gray-600 mb-2"><strong>Phone:</strong> +356 1234 5678</p>
-        <p class="text-gray-600 mb-6"><strong>Email:</strong> info@sangiljanasc.com</p>
+        <p class="text-gray-600 mb-2"><strong>Address:</strong> San Giljan ASC, triq Gorg Borg Olivier, St Julians.</p>
+        <p class="text-gray-600 mb-2"><strong>Phone:</strong> +356 79228370</p>
+        <p class="text-gray-600 mb-6"><strong>Email:</strong> secretary.sangiljanasc@gmail.com</p>
 
         <div class="flex space-x-4">
           <a href="https://www.facebook.com/sangiljanasc/" class="text-blue-600 hover:text-blue-800">Facebook</a>

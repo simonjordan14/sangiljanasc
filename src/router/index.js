@@ -5,12 +5,14 @@ import Squad from '../views/Squad.vue'
 import Home from '../views/Home.vue'
 import Contact from '../views/Contact.vue'
 import About from '../views/About.vue'
+import History from '../views/History.vue'
 
 const routes = [
   { path: '/', component: Home },
   { path: '/squad', component: Squad },
   {path: '/contact', component: Contact},
-  {path: '/about', component: About}
+  {path: '/about', component: About},
+  {path: '/history', component: History}
 ]
 
 const router = createRouter({

@@ -43,9 +43,6 @@
               <div class="text-white font-bold leading-tight">
                 {{ player.name }}
               </div>
-              <div class="text-white/90 text-sm font-semibold">
-                #{{ player.number }}
-              </div>
             </div>
           </div>
   
