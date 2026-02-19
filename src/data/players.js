@@ -18,7 +18,6 @@ import JakeMuscat from '../assets/images/jake-muscat.jpg';
 const Players = [
     {name: 'Jake Tanti', image: JakeTanti, description: 'known as the wall of the team, Jake is a solid goalkeeper who is always ready to defend his goal.'},
     {name: 'Dean Bugeja', image: DeanBugeja, description: 'one of our most highly potential players who recently joined and has already won 3 trophies with the team.'},
-    {name: 'Daniel Tully', image: DanielTully, description: 'A team player who is always ready to give his best on the field.'},
     {name: 'Russel Caruana', image: RusselCaruana, description: 'High potential player who recently portraited great skills and is always ready to learn more.'},
     {name: 'Matthew Zammit', image: MatthewZammit, description: 'The heartbeat of the team. Shows great leadership skills and is always ready to motivate his teammates.'},
     {name: 'Jake Bonavia', image: JakeBonavia, description: '2024 player of the year and a key player in our team. Jake is known for his speed and agility on the field.'},
