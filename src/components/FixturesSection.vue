@@ -3,6 +3,9 @@
       <div class="mx-auto max-w-6xl px-6">
         <!-- Title -->
         <div class="text-center">
+            <h1 class="text-4xl font-bold tracking-tight sm:text-6xl">
+              San Ġiljan ASC
+            </h1>
           <h2 class="text-4xl font-extrabold tracking-tight text-gray-900">Fixtures</h2>
           <p class="mt-3 text-lg text-gray-600">Upcoming water polo fixtures and matches.</p>
         </div>

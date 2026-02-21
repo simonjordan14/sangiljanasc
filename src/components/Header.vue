@@ -7,10 +7,7 @@
     <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70"></div>
 
 
-    <div class="flex-1 flex items-center justify-center relative z-10">
-      <h1 class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
-        San Giljan ASC
-      </h1>
+    <div class="flex-1 flex items-center justify-center relative z-10"> 
     </div>
   </header>
 </template>

@@ -21,9 +21,6 @@
         <!-- Content -->
         <div class="relative mx-auto max-w-6xl px-4 py-24 sm:py-32">
           <div class="text-center">
-            <h1 class="text-4xl font-bold tracking-tight sm:text-6xl">
-              San Ġiljan ASC
-            </h1>
     
             <p class="mx-auto mt-5 max-w-2xl text-base text-white/80 sm:text-lg">
               Founded in 1949. Built in Balluta. Driven by tradition, community, and ambition.
