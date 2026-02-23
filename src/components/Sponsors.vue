@@ -1,50 +1,74 @@
-<template >
-    <div >
-        <h2 class="sponsors-intro text-3xl md:text-4xl font-extrabold text-gray-600 text-center">
-  Sponsors
-</h2>
+<template>
+  <section class="sponsors">
+    <h2 class="sponsors-intro text-3xl md:text-4xl font-extrabold text-gray-600 text-center">
+      Sponsors
+    </h2>
+
+    <!-- TOP ROW (scroll left) -->
+    <div class="wrapper">
+      <div
+        v-for="(sponsor, i) in sponsorsTop"
+        :key="sponsor.id"
+        class="item"
+        :style="itemStyle(i, sponsorsTop.length, 'left')"
+      >
+        <span>{{ sponsor.name }}</span>
+      </div>
     </div>
-<div class="wrapper">
-    <div class="item item1 text-center text-white">
-        <span>Maa Daiken</span>
+
+    <!-- BOTTOM ROW (scroll right) -->
+    <div class="wrapper">
+      <div
+        v-for="(sponsor, i) in sponsorsBottom"
+        :key="sponsor.id"
+        class="item reverse"
+        :style="itemStyle(i, sponsorsBottom.length, 'right')"
+      >
+        <span>{{ sponsor.name }}</span>
+      </div>
     </div>
-  <div class="item item2 text-center text-white">        
-        <span>Lotto Land</span>
-  </div>
-  <div class="item item3 text-center text-white">
-    <span>EuroSport</span>
-    </div>
-  <div class="item item4 text-center text-white">
-    <span>Delicata</span>
-</div>
-  <div class="item item5 text-center text-white">
-    <span>GSD</span>
-</div>
-  <div class="item item6 text-center text-white">
-    <span>Nestle</span>
-</div>
-  <div class="item item7 text-center text-white">
-    <span>Greens</span>
-</div>
-  <div class="item item8 text-center text-white">
-    <span>Il Pirata</span>
-</div>
-</div>
+  </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
+type Sponsor = { id: string; name: string };
+
+const sponsorsTop: Sponsor[] = [
+  { id: 'maa-daiken', name: 'Maa Daiken' },
+  { id: 'lotto-land', name: 'Lotto Land' },
+  { id: 'eurosport', name: 'EuroSport' },
+  { id: 'delicata', name: 'Delicata' },
+  { id: 'gsd', name: 'GSD' },
+  { id: 'nestle', name: 'Nestle' }
+];
+
+const sponsorsBottom: Sponsor[] = [
+  { id: 'greens', name: 'Greens' },
+  { id: 'il-pirata Senglea', name: 'Il Pirata Senglea' },
+  { id: 'il-Pirata Valletta', name: 'Il Pirata Valletta' },
+  { id: 'Mayfair laser clinic', name: 'Mayfair laser clinic' },
+  { id: 'FGS', name: 'FGS' },
+  // { id: 'sponsor-12', name: 'Sponsor 12' }
+];
+
+const ITEM_WIDTH = 200;
+const DURATION = 30;
+
+const itemStyle = (
+  index: number,
+  count: number,
+  direction: 'left' | 'right'
+) => {
+  const delay = (DURATION / count) * (count - (index + 1)) * -1;
+
+  return {
+    animationDelay: `${delay}s`,
+    [direction]: `max(calc(${ITEM_WIDTH}px * ${count}), 100%)`
+  } as const;
+};
 </script>
 
-<style scoped>*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-* {
-  margin: 0;
-}
-
+<style scoped>
 .wrapper {
   width: 90%;
   max-width: 1536px;
@@ -52,71 +76,56 @@
   position: relative;
   height: 100px;
   overflow: hidden;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   mask-image: linear-gradient(
     to right,
     rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 1) 20%,
-    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 1) 15%,
+    rgba(0, 0, 0, 1) 85%,
     rgba(0, 0, 0, 0)
   );
 }
 
+/* LEFT SCROLL */
 @keyframes scrollLeft {
   to {
     left: -200px;
   }
 }
 
+/* RIGHT SCROLL */
+@keyframes scrollRight {
+  to {
+    right: -200px;
+  }
+}
+
 .item {
   width: 200px;
-  height:70px;
+  height: 70px;
   background-color: rgba(97, 93, 95, 0.8);
   border-radius: 6px;
   position: absolute;
-  left: max(calc(200px * 8), 100%);
-  animation-name: scrollLeft;
-  animation-duration: 30s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  display:flex;
-  flex-direction: column;
-    justify-content: center;
+
+  animation: scrollLeft 30s linear infinite;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
 }
 
-.item1 {
-  animation-delay: calc(30s / 8 * (8 - 1) * -1);
-}
-
-.item2 {
-  animation-delay: calc(30s / 8 * (8 - 2) * -1);
-}
-
-.item3 {
-  animation-delay: calc(30s / 8 * (8 - 3) * -1);
-}
-
-.item4 {
-  animation-delay: calc(30s / 8 * (8 - 4) * -1);
-}
-
-.item5 {
-  animation-delay: calc(30s / 8 * (8 - 5) * -1);
-}
-
-.item6 {
-  animation-delay: calc(30s / 8 * (8 - 6) * -1);
-}
-
-.item7 {
-  animation-delay: calc(30s / 8 * (8 - 7) * -1);
-}
-
-.item8 {
-  animation-delay: calc(30s / 8 * (8 - 8) * -1);
+/* reverse row */
+.reverse {
+  animation: scrollRight 30s linear infinite;
 }
 
 .sponsors-intro {
   margin: 2rem 0;
+}
+
+.wrapper {
+  margin-bottom: -1rem;
 }
 </style>
