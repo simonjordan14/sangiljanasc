@@ -127,10 +127,21 @@
   import fixtures from '../data/fixtures.json'
   import fixtureIcon from '../assets/images/fixtureslogo.png'
   
-  const groupedFixtures = fixtures.reduce((acc, match) => {
+  // 1) sort ALL fixtures by id (newest first)
+  const sortedFixtures = [...fixtures].sort((a, b) => Number(b.id) - Number(a.id))
+  
+  // 2) group after sorting
+  const groupedFixtures = sortedFixtures.reduce((acc, match) => {
     const found = acc.find((g) => g.dateLabel === match.dateLabel)
-    if (found) found.matches.push(match)
-    else acc.push({ dateLabel: match.dateLabel, matches: [match] })
+  
+    if (found) {
+      found.matches.push(match)
+      // 3) keep each group sorted by id too (optional but nice)
+      found.matches.sort((a, b) => Number(b.id) - Number(a.id))
+    } else {
+      acc.push({ dateLabel: match.dateLabel, matches: [match] })
+    }
+  
     return acc
   }, [])
   
