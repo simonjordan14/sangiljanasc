@@ -87,7 +87,7 @@
                       <div
                         class="font-extrabold text-gray-900 text-lg sm:text-xl"
                       >
-                        {{ match.score ?? 'TBC' }}
+                        {{ match.score ?? 'TBP' }}
                       </div>
                     </div>
   
