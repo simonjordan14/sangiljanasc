@@ -7,7 +7,8 @@
               San Ġiljan ASC
             </h1>
           <h2 class="text-4xl font-extrabold tracking-tight text-gray-900">Fixtures</h2>
-          <p class="mt-3 text-lg text-gray-600">Upcoming water polo fixtures and matches.</p>
+          <h3>Winter League</h3>
+          <p class="mt-3 text-lg text-gray-600">Upcoming Matches.</p>
         </div>
   
         <!-- Date groups -->
