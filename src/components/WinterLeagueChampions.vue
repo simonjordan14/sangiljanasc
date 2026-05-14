@@ -32,7 +32,7 @@
             </p>
   
             <p class="mt-8 max-w-xl text-xl leading-9 text-zinc-300">
-              San Ġiljan ASC have been crowned Winter League Champions after two great matches against Neptunes WPSC.
+              San Ġiljan ASC have been crowned Winter League Champions after two great matches against Sliema.
             </p>
   
             <div class="mt-10 flex flex-wrap items-center gap-4 text-sm font-medium text-zinc-300">
