@@ -27,6 +27,9 @@
             <h2 class="max-w-xl text-5xl font-black leading-tight tracking-tight md:text-6xl">
               Champions Again
             </h2>
+            <p class="mt-3 text-lg font-semibold uppercase tracking-[0.25em] text-[#9B1C31]">
+            4th Time In A Row !
+            </p>
   
             <p class="mt-8 max-w-xl text-xl leading-9 text-zinc-300">
               San Ġiljan ASC have been crowned Winter League Champions after two great matches against Neptunes WPSC.

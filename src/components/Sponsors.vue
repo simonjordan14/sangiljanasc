@@ -1,6 +1,6 @@
 <template>
   <section class="sponsors">
-    <h2 class="sponsors-intro text-3xl md:text-4xl font-extrabold text-gray-600 text-center">
+    <h2 class="sponsors-intro text-3xl md:text-4xl font-extrabold text-white text-center">
       Sponsors
     </h2>
 
@@ -86,6 +86,11 @@ const itemStyle = (
   );
 }
 
+.sponsors {
+  background: #000;
+  padding: 4rem 0;
+}
+
 /* LEFT SCROLL */
 @keyframes scrollLeft {
   to {
@@ -103,8 +108,9 @@ const itemStyle = (
 .item {
   width: 200px;
   height: 70px;
-  background-color: rgba(97, 93, 95, 0.8);
-  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.06);
+border: 1px solid rgba(255, 255, 255, 0.08);
+backdrop-filter: blur(8px);  border-radius: 6px;
   position: absolute;
 
   animation: scrollLeft 30s linear infinite;
