@@ -125,7 +125,7 @@
   </template>
   
   <script setup>
-  import fixtures from '../data/fixtures.json'
+  import fixtures from '../data/archivedfixtures.json'
   import fixtureIcon from '../assets/images/fixtureslogo.png'
   
   // 1) sort ALL fixtures by id (newest first)
