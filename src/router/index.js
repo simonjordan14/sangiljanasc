@@ -6,13 +6,15 @@ import Home from '../views/Home.vue'
 import Contact from '../views/Contact.vue'
 import About from '../views/About.vue'
 import History from '../views/History.vue'
+import Fixtures from '../views/Fixtures.vue'
 
 const routes = [
   { path: '/', component: Home },
   { path: '/squad', component: Squad },
   {path: '/contact', component: Contact},
   {path: '/about', component: About},
-  {path: '/history', component: History}
+  {path: '/history', component: History},
+  {path: '/fixtures', component: Fixtures}
 ]
 
 const router = createRouter({

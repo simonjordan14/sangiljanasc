@@ -1,28 +1,119 @@
 [
     {
-      "id": 1,
-      "dateLabel": "Sat, Feb 21",
-      "home": "Valletta",
-      "away": "San Giljan ASC",
-      "time": "16:10",
-      "venue": "National Pool",
-      "score": "8-24"
+      "day": "Wed",
+      "date": "2025-06-17",
+      "matchDay": null,
+      "competition": "President's Cup",
+      "time": "20:45",
+      "homeTeam": "San Giljan MAA Daikin",
+      "awayTeam": "Sliema Techfnity Hub Ltd"
     },
     {
-      "id": 2,
-      "dateLabel": "Fri, Feb 27",
-      "home": "San Giljan ASC",
-      "away": "Birzebbugia ASC",
-      "time": "20:20",
-      "venue": "National Pool",
-      "score": "26-5"  
+      "day": "Sat",
+      "date": "2025-06-20",
+      "matchDay": null,
+      "competition": "President's Cup",
+      "time": "18:45",
+      "homeTeam": "Sirens Build Fitness",
+      "awayTeam": "San Giljan MAA Daikin"
     },
     {
-      "id": 3,
-      "dateLabel": "Sat, March 7",
-      "home": "Neptunes WPSC",
-      "away": "San Giljan ASC",
-      "time": "18:15",
-      "venue": "National Pool"
+      "day": "Wed",
+      "date": "2025-06-24",
+      "matchDay": null,
+      "competition": "President's Cup",
+      "time": "20:45",
+      "homeTeam": "San Giljan MAA Daikin",
+      "awayTeam": "Neptunes Best Gyms Malta"
+    },
+    {
+      "day": "Sat",
+      "date": "2025-06-27",
+      "matchDay": null,
+      "competition": "Premier Division",
+      "time": "20:00",
+      "homeTeam": "San Giljan MAA Daikin",
+      "awayTeam": "Sirens Build Fitness"
+    },
+    {
+      "day": "Wed",
+      "date": "2025-07-01",
+      "matchDay": null,
+      "competition": "Premier Division",
+      "time": "20:30",
+      "homeTeam": null,
+      "awayTeam": "San Giljan MAA Daikin"
+    },
+    {
+      "day": "Fri",
+      "date": "2025-07-03",
+      "matchDay": null,
+      "competition": "Premier Division",
+      "time": "19:15",
+      "homeTeam": "San Giljan MAA Daikin",
+      "awayTeam": null
+    },
+    {
+      "day": "Wed",
+      "date": "2025-07-08",
+      "matchDay": null,
+      "competition": "Premier Division",
+      "time": "20:30",
+      "homeTeam": "Sliema Techfinity Hub Ltd",
+      "awayTeam": "San Giljan MAA Daikin"
+    },
+    {
+      "day": "Sat",
+      "date": "2025-07-11",
+      "matchDay": null,
+      "competition": "Premier Division",
+      "time": "20:00",
+      "homeTeam": "San Giljan MAA Daikin",
+      "awayTeam": "Neptunes Best Gyms Malta"
+    },
+    {
+      "day": "Wed",
+      "date": "2025-07-15",
+      "matchDay": null,
+      "competition": "Premier Division",
+      "time": "20:30",
+      "homeTeam": "Sirens Build Fitness",
+      "awayTeam": "San Giljan MAA Daikin"
+    },
+    {
+      "day": "Sat",
+      "date": "2025-07-18",
+      "matchDay": null,
+      "competition": "Premier Division",
+      "time": "18:45",
+      "homeTeam": "San Giljan MAA Daikin",
+      "awayTeam": null
+    },
+    {
+      "day": "Wed",
+      "date": "2025-07-22",
+      "matchDay": null,
+      "competition": "Premier Division",
+      "time": "19:15",
+      "homeTeam": null,
+      "awayTeam": "San Giljan MAA Daikin"
+    },
+    {
+      "day": "Sat",
+      "date": "2025-07-25",
+      "matchDay": null,
+      "competition": "Premier Division",
+      "time": "20:00",
+      "homeTeam": "San Giljan MAA Daikin",
+      "awayTeam": "Sliema Techfinity Hub Ltd"
+    },
+    {
+      "day": "Tue",
+      "date": "2025-07-28",
+      "matchDay": null,
+      "competition": "Premier Division",
+      "time": "20:30",
+      "homeTeam": "Neptunes Best Gyms Malta",
+      "awayTeam": "San Giljan MAA Daikin"
     }
   ]

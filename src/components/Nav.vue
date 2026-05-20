@@ -13,6 +13,7 @@
   <router-link to="/history" class="text-white hover:text-gray-600">History</router-link>
   <router-link to="/squad" class="text-white hover:text-gray-600">Squad</router-link>
   <router-link to="/contact" class="block text-white hover:text-gray-600">Contact</router-link>
+  <router-link to="/fixtures" class="block text-white hover:text-white-600">Fixtures</router-link>
 </div>
 
       <!-- Mobile Menu Button -->
@@ -31,6 +32,7 @@
       <router-link to="/squad" class="text-white hover:text-gray-600">Squad</router-link>
       <router-link to="/contact" class="block text-white hover:text-gray-600">Contact</router-link>
       <router-link to="/history" class="block text-white hover:text-gray-600">History</router-link>
+      <router-link to="/fixtures" class="block text-white hover:text-gray-600">Fixtures</router-link>
     </div>
   </nav>
 </template>
