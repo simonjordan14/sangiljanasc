@@ -1,119 +1,119 @@
 [
-    {
-      "day": "Wed",
-      "date": "2026-06-17",
-      "matchDay": null,
-      "competition": "President's Cup",
-      "time": "20:45",
-      "homeTeam": "San Giljan MAA Daikin",
-      "awayTeam": "Sliema Techfnity Hub Ltd"
-    },
-    {
-      "day": "Sat",
-      "date": "2026-06-20",
-      "matchDay": null,
-      "competition": "President's Cup",
-      "time": "18:45",
-      "homeTeam": "Sirens Build Fitness",
-      "awayTeam": "San Giljan MAA Daikin"
-    },
-    {
-      "day": "Wed",
-      "date": "2026-06-24",
-      "matchDay": null,
-      "competition": "President's Cup",
-      "time": "20:45",
-      "homeTeam": "San Giljan MAA Daikin",
-      "awayTeam": "Neptunes Best Gyms Malta"
-    },
-    {
-      "day": "Sat",
-      "date": "2026-06-27",
-      "matchDay": null,
-      "competition": "Premier Division",
-      "time": "20:00",
-      "homeTeam": "San Giljan MAA Daikin",
-      "awayTeam": "Sirens Build Fitness"
-    },
-    {
-      "day": "Wed",
-      "date": "2026-07-01",
-      "matchDay": null,
-      "competition": "Premier Division",
-      "time": "20:30",
-      "homeTeam": null,
-      "awayTeam": "San Giljan MAA Daikin"
-    },
-    {
-      "day": "Fri",
-      "date": "2026-07-03",
-      "matchDay": null,
-      "competition": "Premier Division",
-      "time": "19:15",
-      "homeTeam": "San Giljan MAA Daikin",
-      "awayTeam": null
-    },
-    {
-      "day": "Wed",
-      "date": "2026-07-08",
-      "matchDay": null,
-      "competition": "Premier Division",
-      "time": "20:30",
-      "homeTeam": "Sliema Techfinity Hub Ltd",
-      "awayTeam": "San Giljan MAA Daikin"
-    },
-    {
-      "day": "Sat",
-      "date": "2026-07-11",
-      "matchDay": null,
-      "competition": "Premier Division",
-      "time": "20:00",
-      "homeTeam": "San Giljan MAA Daikin",
-      "awayTeam": "Neptunes Best Gyms Malta"
-    },
-    {
-      "day": "Wed",
-      "date": "2026-07-15",
-      "matchDay": null,
-      "competition": "Premier Division",
-      "time": "20:30",
-      "homeTeam": "Sirens Build Fitness",
-      "awayTeam": "San Giljan MAA Daikin"
-    },
-    {
-      "day": "Sat",
-      "date": "2026-07-18",
-      "matchDay": null,
-      "competition": "Premier Division",
-      "time": "18:45",
-      "homeTeam": "San Giljan MAA Daikin",
-      "awayTeam": null
-    },
-    {
-      "day": "Wed",
-      "date": "2026-07-22",
-      "matchDay": null,
-      "competition": "Premier Division",
-      "time": "19:15",
-      "homeTeam": null,
-      "awayTeam": "San Giljan MAA Daikin"
-    },
-    {
-      "day": "Sat",
-      "date": "2026-07-25",
-      "matchDay": null,
-      "competition": "Premier Division",
-      "time": "20:00",
-      "homeTeam": "San Giljan MAA Daikin",
-      "awayTeam": "Sliema Techfinity Hub Ltd"
-    },
-    {
-      "day": "Tue",
-      "date": "2026-07-28",
-      "matchDay": null,
-      "competition": "Premier Division",
-      "time": "20:30",
-      "homeTeam": "Neptunes Best Gyms Malta",
-      "awayTeam": "San Giljan MAA Daikin"
-    }
-  ]
+  {
+    "day": "Wed",
+    "date": "2026-06-17",
+    "matchDay": null,
+    "competition": "President's Cup",
+    "time": "20:45",
+    "homeTeam": "San Giljan MAA Daikin",
+    "awayTeam": "Sliema Nexawin"
+  },
+  {
+    "day": "Sat",
+    "date": "2026-06-20",
+    "matchDay": null,
+    "competition": "President's Cup",
+    "time": "18:45",
+    "homeTeam": "Sirens Build Fitness",
+    "awayTeam": "San Giljan MAA Daikin"
+  },
+  {
+    "day": "Wed",
+    "date": "2026-06-24",
+    "matchDay": null,
+    "competition": "President's Cup",
+    "time": "20:45",
+    "homeTeam": "San Giljan MAA Daikin",
+    "awayTeam": "Neptunes Best Gyms Malta"
+  },
+  {
+    "day": "Sat",
+    "date": "2026-06-27",
+    "matchDay": null,
+    "competition": "Premier Division",
+    "time": "20:30",
+    "homeTeam": "San Giljan MAA Daikin",
+    "awayTeam": "Sirens Build Fitness"
+  },
+  {
+    "day": "Wed",
+    "date": "2026-07-01",
+    "matchDay": null,
+    "competition": "Premier Division",
+    "time": "20:30",
+    "homeTeam": "Exiles Welbee's",
+    "awayTeam": "San Giljan MAA Daikin"
+  },
+  {
+    "day": "Fri",
+    "date": "2026-07-03",
+    "matchDay": null,
+    "competition": "Premier Division",
+    "time": "19:15",
+    "homeTeam": "San Giljan MAA Daikin",
+    "awayTeam": "Valletta Peak Insurance"
+  },
+  {
+    "day": "Wed",
+    "date": "2026-07-08",
+    "matchDay": null,
+    "competition": "Premier Division",
+    "time": "20:30",
+    "homeTeam": "Sliema Nexawin",
+    "awayTeam": "San Giljan MAA Daikin"
+  },
+  {
+    "day": "Sat",
+    "date": "2026-07-11",
+    "matchDay": null,
+    "competition": "Premier Division",
+    "time": "20:30",
+    "homeTeam": "San Giljan MAA Daikin",
+    "awayTeam": "Neptunes Best Gyms Malta"
+  },
+  {
+    "day": "Wed",
+    "date": "2026-07-15",
+    "matchDay": null,
+    "competition": "Premier Division",
+    "time": "20:30",
+    "homeTeam": "Sirens Build Fitness",
+    "awayTeam": "San Giljan MAA Daikin"
+  },
+  {
+    "day": "Sat",
+    "date": "2026-07-18",
+    "matchDay": null,
+    "competition": "Premier Division",
+    "time": "19:15",
+    "homeTeam": "San Giljan MAA Daikin",
+    "awayTeam": "Exiles Welbee's"
+  },
+  {
+    "day": "Wed",
+    "date": "2026-07-22",
+    "matchDay": null,
+    "competition": "Premier Division",
+    "time": "19:15",
+    "homeTeam": "Valletta Peak Insurance",
+    "awayTeam": "San Giljan MAA Daikin"
+  },
+  {
+    "day": "Sat",
+    "date": "2026-07-25",
+    "matchDay": null,
+    "competition": "Premier Division",
+    "time": "20:00",
+    "homeTeam": "San Giljan MAA Daikin",
+    "awayTeam": "Sliema Nexawin"
+  },
+  {
+    "day": "Tue",
+    "date": "2026-07-28",
+    "matchDay": null,
+    "competition": "Premier Division",
+    "time": "20:30",
+    "homeTeam": "Neptunes Best Gyms Malta",
+    "awayTeam": "San Giljan MAA Daikin"
+  }
+]
