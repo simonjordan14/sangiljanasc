@@ -6,11 +6,13 @@ import Footer from '../components/Footer.vue'
 import ServicesSection from '../components/ServicesSection.vue';
 import FixturesSection from '../components/FixturesSection.vue';
 import WinterLeagueChampions from '../components/WinterLeagueChampions.vue';
+import NextMatch from '../components/NextMatch.vue'
 </script>
 
 <template>
  <Header />
- <WinterLeagueChampions />
+ <!-- <WinterLeagueChampions /> -->
+ <NextMatch />
  <!-- <FixturesSection /> -->
  <MainStory />
   <ServicesSection />
