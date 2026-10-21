@@ -1,28 +1,43 @@
+
 [
-    {
-      "id": 1,
-      "dateLabel": "Sat, Feb 21",
-      "home": "Valletta",
-      "away": "San Giljan ASC",
-      "time": "16:10",
-      "venue": "National Pool",
-      "score": "8-24"
-    },
-    {
-      "id": 2,
-      "dateLabel": "Fri, Feb 27",
-      "home": "San Giljan ASC",
-      "away": "Birzebbugia ASC",
-      "time": "20:20",
-      "venue": "National Pool",
-      "score": "26-5"  
-    },
-    {
-      "id": 3,
-      "dateLabel": "Sat, March 7",
-      "home": "Neptunes WPSC",
-      "away": "San Giljan ASC",
-      "time": "18:15",
-      "venue": "National Pool"
-    }
-  ]
+  {
+    "id": 1,
+    "dateLabel": "Sat, Nov 7",
+    "home": "San Giljan ASC",
+    "away": "Sliema",
+    "time": "17:20",
+    "venue": "National Pool"
+  },
+  {
+    "id": 2,
+    "dateLabel": "Sat, Nov 14",
+    "home": "Neptunes WPSC",
+    "away": "San Giljan ASC",
+    "time": "17:20",
+    "venue": "National Pool"
+  },
+  {
+    "id": 3,
+    "dateLabel": "Fri, Nov 27",
+    "home": "Sirens",
+    "away": "San Giljan ASC",
+    "time": "20:20",
+    "venue": "National Pool"
+  },
+  {
+    "id": 4,
+    "dateLabel": "Wed, Dec 2",
+    "home": "San Giljan ASC",
+    "away": "Birzebbugia ASC",
+    "time": "19:40",
+    "venue": "Cottonera"
+  },
+  {
+    "id": 5,
+    "dateLabel": "Sat, Dec 5",
+    "home": "San Giljan ASC",
+    "away": "Valletta",
+    "time": "17:00",
+    "venue": "Gozo Complex"
+  }
+]
