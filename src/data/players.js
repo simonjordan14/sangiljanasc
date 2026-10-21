@@ -1,7 +1,6 @@
 import JakeTanti from '../assets/images/jake-tanti.jpg';
 import DeanBugeja from '../assets/images/dean-bugeja.jpg';
 import DanielTully from '../assets/images/daniel-tully.jpg';
-import RusselCaruana from '../assets/images/russel-caruana.jpg';
 import MatthewZammit from '../assets/images/matthew-zammit.jpg';
 import JakeBonavia from '../assets/images/jake-bonavia.jpg';
 import BenPlumpton from '../assets/images/ben-plumpton.jpg';
@@ -18,7 +17,6 @@ import JakeMuscat from '../assets/images/jake-muscat.jpg';
 const Players = [
     {name: 'Jake Tanti', image: JakeTanti, description: 'known as the wall of the team, Jake is a solid goalkeeper who is always ready to defend his goal.'},
     {name: 'Dean Bugeja', image: DeanBugeja, description: 'one of our most highly potential players who recently joined and has already won 3 trophies with the team.'},
-    {name: 'Russel Caruana', image: RusselCaruana, description: 'High potential player who recently portraited great skills and is always ready to learn more.'},
     {name: 'Matthew Zammit', image: MatthewZammit, description: 'The heartbeat of the team. Shows great leadership skills and is always ready to motivate his teammates.'},
     {name: 'Jake Bonavia', image: JakeBonavia, description: '2024 player of the year and a key player in our team. Jake is known for his speed and agility on the field.'},
     {name: 'Ben Plumpton', image: BenPlumpton, description: 'A core member of the squad and club. Ben is a strong and physical player who is always ready to fight for the ball.'},

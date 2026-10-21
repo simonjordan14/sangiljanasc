@@ -60,7 +60,7 @@
         <div class="relative order-2 lg:order-1">
           <div class="absolute -inset-2 rounded-3xl bg-gradient-to-r from-white/10 via-red-500/15 to-yellow-400/20 blur-xl opacity-70 group-hover:opacity-100 transition"></div>
           <img
-            src="../assets/russel.jpg"
+            src="../assets/benp.jpg"
             alt="San Ġiljan ASC players training"
             class="relative rounded-3xl shadow-2xl object-cover w-full h-72 md:h-96
                    ring-1 ring-white/10 transition duration-500 group-hover:scale-[1.02]"
