@@ -275,7 +275,7 @@ const upcomingCount = computed(() =>
               <!-- KICKOFF -->
               <div class="match-centre">
                 <span class="centre-label">
-                  {{ hasScore(match) ? 'FINAL RESULT' : 'KICK OFF' }}
+                  {{ hasScore(match) ? 'FINAL RESULT' : 'Starting Time' }}
                 </span>
 
                 <strong class="kickoff-time">
