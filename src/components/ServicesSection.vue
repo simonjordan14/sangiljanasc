@@ -104,7 +104,7 @@
       <div class="mt-16 flex flex-col md:flex-row items-center justify-between gap-8 border-t border-white/10 pt-10">
         <div class="text-center md:text-left">
           <h3 class="text-2xl font-bold text-white">
-            Ready to make a splash?
+            Ready to make an impact?
           </h3>
           <p class="mt-2 text-gray-400">
             Your journey with San Giljan ASC starts here.
