@@ -74,7 +74,7 @@ const toggleVideo = async () => {
         />
 
           <!-- Play / Pause -->
-          <button
+          <!-- <button
             type="button"
             :aria-label="isPlaying ? 'Pause video' : 'Play video'"
             class="absolute bottom-6 right-6 flex h-16 w-16
@@ -85,7 +85,7 @@ const toggleVideo = async () => {
             @click="toggleVideo"
           >
             {{ isPlaying ? 'Ⅱ' : '▶' }}
-          </button>
+          </button> -->
         </div>
 
         <!-- Sponsorship information -->
