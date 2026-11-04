@@ -1,111 +1,212 @@
+
 <script setup>
-  import PlayerCard from '../components/PlayerCard.vue'
-  import SectionDivider from '../components/SectionDivider.vue'
-  
-  import staff from '../data/coaching-staff'
-  import { ref, nextTick } from 'vue'
-  
-  const playerSummary = ref('')
-  const playerImage = ref('')
-  const showPlayer = ref(false)
-  
-  const handlePlayerClick = async (player) => {
-    playerSummary.value = player.description
-    playerImage.value = player.image
-    showPlayer.value = true
-  
-    await nextTick()
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-  
-  const closePlayer = () => {
-    showPlayer.value = false
-  }
-  </script>
-  
-  <template>
-  
+import { ref, watch, onUnmounted } from 'vue'
+
+import PlayerCard from '../components/PlayerCard.vue'
+import SectionDivider from '../components/SectionDivider.vue'
+import staff from '../data/coaching-staff'
+
+const selectedPlayer = ref(null)
+
+const handlePlayerClick = (player) => {
+  selectedPlayer.value = player
+}
+
+const closePlayer = () => {
+  selectedPlayer.value = null
+}
+
+const handleKeydown = (event) => {
+  if (event.key === 'Escape') closePlayer()
+}
+
+watch(selectedPlayer, (player) => {
+  document.body.style.overflow = player ? 'hidden' : ''
+})
+
+onUnmounted(() => {
+  document.body.style.overflow = ''
+})
+</script>
+
+<template>
+  <main class="bg-[#0b1112] text-white">
+
     <!-- HERO -->
-    <section class="relative bg-black text-white">
-      <div class="mx-auto max-w-6xl px-4 py-20 text-center">
-        <h2 class="text-4xl font-bold tracking-tight">Meet The Team</h2>
-        <p class="mt-4 text-white/80">
-          Players and technical staff representing San Ġiljan ASC.
+    <section class="relative overflow-hidden bg-[#101819]">
+      <div
+        class="absolute inset-0 bg-gradient-to-b
+               from-black/20 to-[#101819]"
+      ></div>
+
+      <div class="relative mx-auto max-w-7xl px-6 py-16 md:py-20">
+          <div class="mb-6 flex items-center gap-3">
+          <span class="h-px w-10 bg-[#e5c47b]"></span>
+          <span class="text-xs font-semibold uppercase tracking-[0.25em] text-[#e5c47b]">
+            San Ġiljan ASC
+          </span>
+        </div>
+
+        <h1 class="text-5xl font-bold tracking-tight md:text-7xl">
+          Meet the
+          <span class="text-[#e5c47b]">Team.</span>
+        </h1>
+
+        <p class="mt-6 max-w-xl text-base leading-8 text-gray-400">
+          Meet the players and technical staff representing
+          San Ġiljan ASC. United by passion, driven by excellence.
         </p>
       </div>
-  
-      <!-- Divider -->
-      <SectionDivider />
+
     </section>
-  
-    <!-- CONTENT -->
-    <section class="bg-white">
-      <div class="mx-auto max-w-6xl px-4 py-16">
-        <div class="py-6">
-          <h3 class="text-3xl font-bold text-gray-800 text-center">Players</h3>
-          <div class="mt-8">
-            <PlayerCard @player-click="handlePlayerClick" />
-          </div>
+
+    <!-- PLAYERS -->
+    <section class="px-4 py-20 md:px-8">
+      <div class="mx-auto max-w-7xl">
+
+        <div class="mb-12">
+          <p class="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-[#e5c47b]">
+            The Squad
+          </p>
+
+          <h2 class="text-3xl font-bold md:text-5xl">
+            Our <span class="text-[#e5c47b]">Players</span>
+          </h2>
+
+          <p class="mt-4 text-gray-400">
+            The athletes representing our club in the pool.
+            Select a player to learn more.
+          </p>
         </div>
-  
-        <h3 class="text-3xl font-bold text-gray-800 text-center my-10">Technical Staff</h3>
-  
-        <div class="flex flex-wrap justify-center">
+
+        <PlayerCard @player-click="handlePlayerClick" />
+      </div>
+    </section>
+
+    <!-- TECHNICAL STAFF -->
+    <section class="bg-[#141c1e] px-4 py-20 md:px-8">
+      <div class="mx-auto max-w-7xl">
+
+        <div class="mb-12">
+          <p class="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-[#e5c47b]">
+            Behind the Team
+          </p>
+
+          <h2 class="text-3xl font-bold md:text-5xl">
+            Technical <span class="text-[#e5c47b]">Staff</span>
+          </h2>
+
+          <p class="mt-4 text-gray-400">
+            The people guiding our players both in and out of the water.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 gap-6 sm:grid-cols-2
+                 lg:grid-cols-3 xl:grid-cols-4"
+        >
           <div
-            v-for="(person, index) in staff"
-            :key="index"
-            class="m-6 w-60 max-w-sm overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg"
+            v-for="person in staff"
+            :key="person.name"
+            class="group overflow-hidden rounded-2xl
+                   border border-white/10 bg-[#0b1112]
+                   transition duration-300
+                   hover:-translate-y-1 hover:border-[#e5c47b]/50"
           >
-            <div class="h-80 overflow-hidden">
+            <div class="aspect-[4/5] overflow-hidden">
               <img
-                class="h-full w-full object-cover"
                 :src="person.image"
                 :alt="person.name"
                 loading="lazy"
+                class="h-full w-full object-cover
+                       transition-transform duration-500
+                       group-hover:scale-105"
               />
             </div>
-  
-            <div class="px-6 py-4 text-center">
-              <h2 class="text-xl font-semibold text-gray-800">{{ person.name }}</h2>
-              <p class="text-gray-600">{{ person.role }}</p>
+
+            <div class="p-6">
+              <div class="mb-3 h-0.5 w-10 bg-[#e5c47b]"></div>
+
+              <h3 class="text-xl font-bold">
+                {{ person.name }}
+              </h3>
+
+              <p class="mt-2 text-sm text-[#e5c47b]">
+                {{ person.role }}
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-  
-    <!-- Player Modal Overlay -->
+
+    <!-- PLAYER MODAL -->
     <div
-      v-if="showPlayer"
-      class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+      v-if="selectedPlayer"
+      class="fixed inset-0 z-50 flex items-center
+             justify-center bg-black/85 p-4 backdrop-blur-md"
+      role="dialog"
+      aria-modal="true"
+      :aria-label="selectedPlayer.name"
+      @keydown="handleKeydown"
+      @click.self="closePlayer"
     >
       <div
-        class="relative w-full max-w-4xl overflow-hidden rounded-2xl bg-white shadow-lg flex flex-col md:flex-row"
+        class="relative flex max-h-[90vh] w-full max-w-5xl
+               flex-col overflow-y-auto rounded-2xl
+               border border-white/10 bg-[#141c1e]
+               shadow-2xl md:flex-row"
       >
-        <!-- Close Button -->
+        <!-- CLOSE -->
         <button
+          type="button"
+          class="absolute right-5 top-5 z-20 flex h-10 w-10
+                 items-center justify-center rounded-full
+                 bg-black/70 text-xl text-white
+                 transition hover:bg-[#e5c47b] hover:text-black"
+          aria-label="Close player details"
           @click="closePlayer"
-          class="absolute right-4 top-4 text-xl font-bold text-gray-500 hover:text-black"
-          aria-label="Close"
         >
           ✕
         </button>
-  
-        <!-- Image -->
-        <div class="flex items-center justify-center p-4 md:w-1/2">
+
+        <!-- IMAGE -->
+        <div class="bg-[#080d0e] md:w-1/2">
           <img
-            :src="playerImage"
-            alt="Selected Player"
-            class="max-h-[80vh] rounded-xl object-contain"
+            :src="selectedPlayer.image"
+            :alt="selectedPlayer.name"
+            class="h-full max-h-[65vh] w-full object-contain"
           />
         </div>
-  
-        <!-- Text -->
-        <div class="flex items-center justify-center p-6 text-center md:w-1/2">
-          <p class="text-lg">{{ playerSummary }}</p>
+
+        <!-- DETAILS -->
+        <div
+          class="flex flex-col justify-center p-8
+                 md:w-1/2 md:p-12"
+        >
+          <p class="mb-4 text-xs font-semibold uppercase tracking-widest text-[#e5c47b]">
+            San Ġiljan ASC · First Team
+          </p>
+
+          <h2 class="text-3xl font-bold md:text-5xl">
+            {{ selectedPlayer.name }}
+          </h2>
+
+          <p
+            v-if="selectedPlayer.number != null"
+            class="mt-3 text-2xl font-bold text-[#e5c47b]"
+          >
+            #{{ selectedPlayer.number }}
+          </p>
+
+          <div class="my-8 h-px w-full bg-white/10"></div>
+
+          <p class="whitespace-pre-line text-base leading-8 text-gray-300">
+            {{ selectedPlayer.description }}
+          </p>
         </div>
       </div>
     </div>
-  
-  </template>
-  
+
+  </main>
+</template>

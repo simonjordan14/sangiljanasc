@@ -34,6 +34,10 @@ const getTeamInitial = (name = '') => {
 
 // Convert a Malta-local date/time into an absolute timestamp.
 const getKickoffTimestamp = (date, time) => {
+  if (!date || !/^\d{2}:\d{2}$/.test(time)) {
+    return null
+  }
+
   const [year, month, day] = date.split('-').map(Number)
   const [hour, minute] = time.split(':').map(Number)
 
@@ -44,6 +48,8 @@ const getKickoffTimestamp = (date, time) => {
     hour,
     minute
   )
+
+  if (!Number.isFinite(target)) return null
 
   const formatter = new Intl.DateTimeFormat('en-GB', {
     timeZone: 'Europe/Malta',
@@ -82,23 +88,21 @@ const getKickoffTimestamp = (date, time) => {
   return timestamp
 }
 
+
+
 // Automatically select the next upcoming match.
 const nextMatch = computed(() => {
   return [...fixtures]
-    .filter((match) => {
-      const kickoff = getKickoffTimestamp(
-        match.date,
-        match.time
-      )
-
-      return kickoff > now.value
-    })
-    .sort((a, b) => {
-      return (
-        getKickoffTimestamp(a.date, a.time) -
-        getKickoffTimestamp(b.date, b.time)
-      )
-    })[0] ?? null
+    .map((match) => ({
+      ...match,
+      startTimestamp: getKickoffTimestamp(match.date, match.time)
+    }))
+    .filter(
+      (match) =>
+        match.startTimestamp !== null &&
+        match.startTimestamp > now.value
+    )
+    .sort((a, b) => a.startTimestamp - b.startTimestamp)[0] ?? null
 })
 
 const formatDate = (date) => {
@@ -211,7 +215,7 @@ const formatShortDate = (date) => {
           <!-- KICKOFF -->
           <div class="match-centre">
             <span class="kickoff-label">
-              KICK OFF
+              START TIME
             </span>
 
             <strong class="kickoff-time">

@@ -6,7 +6,8 @@
     "home": "San Giljan ASC",
     "away": "Sliema",
     "time": "17:20",
-    "venue": "National Pool"
+    "venue": "National Pool",
+    "competition": "Enemed Cup"
   },
   {
     "id": 2,
@@ -14,7 +15,35 @@
     "home": "Neptunes WPSC",
     "away": "San Giljan ASC",
     "time": "17:20",
-    "venue": "National Pool"
+    "venue": "National Pool",
+    "competition": "Enemed Cup"
+  },
+  {
+    "id": 6,
+    "date": "2026-11-20",
+    "home": "San Giljan ASC",
+    "away": "TBC",
+    "time": "TBC",
+    "venue": "TBC",
+    "competition": "European Challenger Cup"
+  },
+  {
+    "id": 7,
+    "date": "2026-11-21",
+    "home": "San Giljan ASC",
+    "away": "TBC",
+    "time": "TBC",
+    "venue": "TBC",
+    "competition": "European Challenger Cup"
+  },
+  {
+    "id": 8,
+    "date": "2026-11-22",
+    "home": "San Giljan ASC",
+    "away": "TBC",
+    "time": "TBC",
+    "venue": "TBC",
+    "competition": "European Challenger Cup"
   },
   {
     "id": 3,
@@ -22,7 +51,8 @@
     "home": "Sirens",
     "away": "San Giljan ASC",
     "time": "20:20",
-    "venue": "National Pool"
+    "venue": "National Pool",
+    "competition": "Enemed Cup"
   },
   {
     "id": 4,
@@ -30,7 +60,8 @@
     "home": "San Giljan ASC",
     "away": "Birzebbugia ASC",
     "time": "19:40",
-    "venue": "Cottonera"
+    "venue": "Cottonera",
+    "competition": "Enemed Cup"
   },
   {
     "id": 5,
@@ -38,6 +69,7 @@
     "home": "San Giljan ASC",
     "away": "Valletta",
     "time": "17:00",
-    "venue": "Gozo Complex"
+    "venue": "Gozo Complex",
+    "competition": "Enemed Cup"
   }
 ]

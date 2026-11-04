@@ -25,16 +25,20 @@ const isSanGiljan = (name = '') => {
   )
 }
 
+const isEuropeanFixture = (match) =>
+  match.competition === 'European Challenger Cup'
+
 const getTeamInitial = (name = '') => {
   if (isSanGiljan(name)) return 'STJ'
-
+  if (!name || name === 'TBC') return '?'
   return name.charAt(0).toUpperCase()
 }
 
 const sortedFixtures = computed(() =>
   [...fixtures].sort((a, b) =>
-    `${a.date}T${a.time}`.localeCompare(
-      `${b.date}T${b.time}`
+    a.date.localeCompare(b.date) ||
+    (a.time === 'TBC' ? '23:59' : a.time).localeCompare(
+      b.time === 'TBC' ? '23:59' : b.time
     )
   )
 )
@@ -61,19 +65,13 @@ const formatShortDate = (date) => {
   }).format(new Date(Date.UTC(year, month - 1, day)))
 }
 
-// Convert a Malta-local kickoff date and time to a timestamp.
-// Handles winter and summer time automatically.
 const getKickoffTimestamp = (date, time) => {
+  if (!/^\d{2}:\d{2}$/.test(time)) return null
+
   const [year, month, day] = date.split('-').map(Number)
   const [hour, minute] = time.split(':').map(Number)
 
-  const target = Date.UTC(
-    year,
-    month - 1,
-    day,
-    hour,
-    minute
-  )
+  const target = Date.UTC(year, month - 1, day, hour, minute)
 
   const formatter = new Intl.DateTimeFormat('en-GB', {
     timeZone: 'Europe/Malta',
@@ -92,10 +90,7 @@ const getKickoffTimestamp = (date, time) => {
       formatter
         .formatToParts(new Date(timestamp))
         .filter((part) => part.type !== 'literal')
-        .map((part) => [
-          part.type,
-          Number(part.value)
-        ])
+        .map((part) => [part.type, Number(part.value)])
     )
 
     const represented = Date.UTC(
@@ -120,16 +115,23 @@ const hasScore = (match) =>
 const getStatus = (match) => {
   if (hasScore(match)) return 'FULL TIME'
 
-  const kickoff = getKickoffTimestamp(
-    match.date,
-    match.time
-  )
+  const kickoff = getKickoffTimestamp(match.date, match.time)
 
-  if (now.value < kickoff) {
-    return 'UPCOMING'
+  if (kickoff === null) {
+    const todayInMalta = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Europe/Malta',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    }).format(new Date(now.value))
+
+    return match.date < todayInMalta
+      ? 'AWAITING RESULT'
+      : 'TIME TBC'
   }
 
-  // Approximate match window.
+  if (now.value < kickoff) return 'UPCOMING'
+
   if (now.value < kickoff + 2 * 60 * 60 * 1000) {
     return 'MATCH DAY'
   }
@@ -138,15 +140,14 @@ const getStatus = (match) => {
 }
 
 const upcomingCount = computed(() =>
-  sortedFixtures.value.filter(
-    (match) => getStatus(match) === 'UPCOMING'
+  sortedFixtures.value.filter((match) =>
+    ['UPCOMING', 'TIME TBC'].includes(getStatus(match))
   ).length
 )
 </script>
 
 <template>
   <main class="fixtures-page">
-    <!-- Background -->
     <div class="page-glow"></div>
     <div class="page-grid"></div>
 
@@ -167,13 +168,14 @@ const upcomingCount = computed(() =>
 
         <p class="hero-description">
           Every match. Every moment. Every goal.
-          Follow San Ġiljan ASC throughout the 2026/27 season.
+          Follow San Ġiljan ASC throughout the 2026/27 season,
+          at home and across Europe.
         </p>
 
         <div class="hero-meta">
           <span class="competition-pill">
             <span class="red-dot"></span>
-            ENEMED CUP 2026/27
+            SEASON 2026/27 · DOMESTIC & EUROPEAN
           </span>
 
           <span class="fixture-counter">
@@ -186,9 +188,7 @@ const upcomingCount = computed(() =>
       <section class="fixtures-content">
         <div class="section-heading">
           <div>
-            <p class="section-kicker">
-              MATCH SCHEDULE
-            </p>
+            <p class="section-kicker">MATCH SCHEDULE</p>
 
             <h2>
               Upcoming <span>Fixtures</span>
@@ -200,20 +200,27 @@ const upcomingCount = computed(() =>
           </div>
         </div>
 
-        <div
-          v-if="sortedFixtures.length"
-          class="fixture-list"
-        >
+        <div v-if="sortedFixtures.length" class="fixture-list">
           <article
             v-for="(match, index) in sortedFixtures"
             :key="match.id"
             class="fixture-card"
+            :class="{
+              'european-fixture': isEuropeanFixture(match)
+            }"
           >
             <!-- TOP BAR -->
             <div class="card-top">
               <div class="card-top-left">
                 <span class="match-number">
-                  MATCH {{ String(index + 1).padStart(2, '0') }}
+                  {{ isEuropeanFixture(match)
+                    ? 'EUROPEAN FIXTURE'
+                    : `MATCH ${String(
+                        sortedFixtures
+                          .slice(0, index + 1)
+                          .filter(m => !isEuropeanFixture(m)).length
+                      ).padStart(2, '0')}`
+                  }}
                 </span>
 
                 <span class="top-divider"></span>
@@ -228,7 +235,8 @@ const upcomingCount = computed(() =>
                 :class="{
                   'status-finished': getStatus(match) === 'FULL TIME',
                   'status-awaiting': getStatus(match) === 'AWAITING RESULT',
-                  'status-matchday': getStatus(match) === 'MATCH DAY'
+                  'status-matchday': getStatus(match) === 'MATCH DAY',
+                  'status-tbc': getStatus(match) === 'TIME TBC'
                 }"
               >
                 <span class="status-indicator"></span>
@@ -236,10 +244,19 @@ const upcomingCount = computed(() =>
               </span>
             </div>
 
-            <!-- MATCHUP -->
-            <div class="matchup">
+            <!-- EUROPEAN COMPETITION -->
+            <div
+              v-if="isEuropeanFixture(match)"
+              class="european-competition"
+            >
+              <span>★ EUROPEAN CHALLENGER CUP</span>
+              <span>2026/27</span>
+            </div>
 
-              <!-- HOME TEAM -->
+            <!-- NORMAL MATCHUP -->
+            <div v-if="!isEuropeanFixture(match)" class="matchup">
+
+              <!-- HOME -->
               <div class="team team-home">
                 <div
                   class="crest-container"
@@ -258,9 +275,7 @@ const upcomingCount = computed(() =>
                 </div>
 
                 <div class="team-details">
-                  <span class="team-role">
-                    HOME
-                  </span>
+                  <span class="team-role">HOME</span>
 
                   <h3
                     :class="{
@@ -275,19 +290,17 @@ const upcomingCount = computed(() =>
               <!-- KICKOFF -->
               <div class="match-centre">
                 <span class="centre-label">
-                  {{ hasScore(match) ? 'FINAL RESULT' : 'Starting Time' }}
+                  {{ hasScore(match) ? 'FINAL RESULT' : 'START TIME' }}
                 </span>
 
                 <strong class="kickoff-time">
                   {{ hasScore(match) ? match.score : match.time }}
                 </strong>
 
-                <span class="vs-text">
-                  VS
-                </span>
+                <span class="vs-text">VS</span>
               </div>
 
-              <!-- AWAY TEAM -->
+              <!-- AWAY -->
               <div class="team team-away">
                 <div
                   class="crest-container"
@@ -306,9 +319,7 @@ const upcomingCount = computed(() =>
                 </div>
 
                 <div class="team-details">
-                  <span class="team-role">
-                    AWAY
-                  </span>
+                  <span class="team-role">AWAY</span>
 
                   <h3
                     :class="{
@@ -319,6 +330,27 @@ const upcomingCount = computed(() =>
                   </h3>
                 </div>
               </div>
+            </div>
+
+            <!-- EUROPEAN MATCHUP -->
+            <div
+              v-else
+              class="european-matchup"
+            >
+              <span class="european-label">
+                EUROPEAN COMPETITION
+              </span>
+
+              <h3>San Ġiljan ASC</h3>
+
+              <p v-if="match.away === 'TBC'">
+                Opponent and start time to be confirmed
+              </p>
+
+              <p v-else>
+                {{ match.home }} vs {{ match.away }}
+                · {{ match.time }}
+              </p>
             </div>
 
             <!-- BOTTOM BAR -->
@@ -341,32 +373,30 @@ const upcomingCount = computed(() =>
                   <circle cx="12" cy="10" r="2.5" />
                 </svg>
 
-                {{ match.venue || 'Venue TBC' }}
+                {{ match.venue === 'TBC'
+                  ? 'Venue TBC'
+                  : match.venue || 'Venue TBC'
+                }}
               </div>
 
               <span class="bottom-date">
-                {{ formatShortDate(match.date) }} · {{ match.time }}
+                {{ formatShortDate(match.date) }}
+                · {{ match.time }}
               </span>
             </div>
           </article>
         </div>
 
-        <!-- EMPTY STATE -->
         <div v-else class="empty-state">
           <h3>No fixtures announced yet.</h3>
-
-          <p>
-            Check back soon for the latest match schedule.
-          </p>
+          <p>Check back soon for the latest match schedule.</p>
         </div>
       </section>
 
       <!-- CTA -->
       <section class="bottom-cta">
         <div>
-          <p class="section-kicker">
-            MORE THAN A CLUB
-          </p>
+          <p class="section-kicker">MORE THAN A CLUB</p>
 
           <h2>
             STAND WITH <span>SAN ĠILJAN.</span>
@@ -378,10 +408,7 @@ const upcomingCount = computed(() =>
           </p>
         </div>
 
-        <router-link
-          to="/contact"
-          class="cta-button"
-        >
+        <router-link to="/contact" class="cta-button">
           GET IN TOUCH
           <span>↗</span>
         </router-link>
@@ -426,6 +453,7 @@ const upcomingCount = computed(() =>
 }
 
 /* HERO */
+
 .page-hero {
   text-align: center;
   padding-bottom: 90px;
@@ -509,6 +537,7 @@ const upcomingCount = computed(() =>
 }
 
 /* SECTION */
+
 .section-heading {
   display: flex;
   align-items: end;
@@ -543,6 +572,7 @@ const upcomingCount = computed(() =>
 }
 
 /* FIXTURE CARDS */
+
 .fixture-list {
   display: flex;
   flex-direction: column;
@@ -567,6 +597,7 @@ const upcomingCount = computed(() =>
 }
 
 /* TOP BAR */
+
 .card-top {
   display: flex;
   justify-content: space-between;
@@ -629,17 +660,20 @@ const upcomingCount = computed(() =>
   background: #9ca3af;
 }
 
-.status-matchday {
+.status-matchday,
+.status-tbc {
   color: #fbbf24;
   background: rgba(251, 191, 36, 0.08);
   border-color: rgba(251, 191, 36, 0.2);
 }
 
-.status-matchday .status-indicator {
+.status-matchday .status-indicator,
+.status-tbc .status-indicator {
   background: #fbbf24;
 }
 
 /* MATCHUP */
+
 .matchup {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 170px minmax(0, 1fr);
@@ -686,7 +720,6 @@ const upcomingCount = computed(() =>
 .san-giljan-initial {
   color: #f87171;
   font-size: 25px;
-  font-weight: 900;
   letter-spacing: -1px;
 }
 
@@ -715,6 +748,7 @@ const upcomingCount = computed(() =>
 }
 
 /* CENTRE */
+
 .match-centre {
   display: flex;
   flex-direction: column;
@@ -746,7 +780,67 @@ const upcomingCount = computed(() =>
   letter-spacing: 3px;
 }
 
+/* EUROPEAN FIXTURES */
+
+.european-fixture {
+  border-color: rgba(231, 194, 117, 0.35);
+  background: linear-gradient(
+    135deg,
+    #171a1e 0%,
+    #211c13 100%
+  );
+}
+
+.european-fixture:hover {
+  border-color: #e7c275;
+  box-shadow: 0 20px 50px rgba(231, 194, 117, 0.08);
+}
+
+.european-competition {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px 30px;
+  background: rgba(231, 194, 117, 0.09);
+  color: #e7c275;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+.european-matchup {
+  padding: 45px 20px;
+  text-align: center;
+}
+
+.european-label {
+  color: #e7c275;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.european-matchup h3 {
+  margin-top: 15px;
+  color: white;
+  font-size: clamp(24px, 4vw, 38px);
+  font-weight: 900;
+}
+
+.european-matchup p {
+  margin-top: 12px;
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+.european-fixture .match-number,
+.european-fixture .venue-info svg {
+  color: #e7c275;
+}
+
 /* BOTTOM BAR */
+
 .card-bottom {
   display: flex;
   align-items: center;
@@ -778,7 +872,8 @@ const upcomingCount = computed(() =>
   white-space: nowrap;
 }
 
-/* EMPTY */
+/* EMPTY STATE */
+
 .empty-state {
   padding: 70px 25px;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -798,6 +893,7 @@ const upcomingCount = computed(() =>
 }
 
 /* CTA */
+
 .bottom-cta {
   display: flex;
   align-items: center;
@@ -849,6 +945,7 @@ const upcomingCount = computed(() =>
 }
 
 /* TABLET */
+
 @media (max-width: 900px) {
   .matchup {
     grid-template-columns: minmax(0, 1fr) 110px minmax(0, 1fr);
@@ -874,6 +971,7 @@ const upcomingCount = computed(() =>
 }
 
 /* MOBILE */
+
 @media (max-width: 600px) {
   .fixtures-page {
     padding: 75px 0 65px;
@@ -962,6 +1060,15 @@ const upcomingCount = computed(() =>
 
   .venue-info {
     font-size: 11px;
+  }
+
+  .european-competition {
+    padding: 14px 15px;
+    font-size: 9px;
+  }
+
+  .european-matchup {
+    padding: 35px 15px;
   }
 
   .bottom-cta {
